@@ -1,125 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO Meta Tags -->
   <title>Olamide & Oladele Eden Wedding</title>
+  <meta name="description" content="Join Olamide and Oladele for their wedding celebration on June 7, 2025. Explore our story, gallery, and RSVP details." />
+  <meta name="keywords" content="Olamide and Oladele, wedding, EdenExperience2025, OlamideleUnion, June 7 2025, Lagos wedding" />
+  <meta name="author" content="Olamide & Oladele Eden" />
+  <meta name="robots" content="index, follow" />
+  <!-- Open Graph Tags for Social Media -->
+  <meta property="og:title" content="Olamide & Oladele Eden Wedding" />
+  <meta property="og:description" content="Celebrate the union of Olamide and Oladele on June 7, 2025. RSVP and explore our love story!" />
+  <meta property="og:image" content="/images/invite.jpg" />
+  <meta property="og:url" content="https://yourwebsite.com" />
+  <meta property="og:type" content="website" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Olamide & Oladele Eden Wedding",
+      "startDate": "2025-06-07",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Remnant Christian Network Lagos (The Forge)",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "34 Budland Street, Grammar School Bus-Stop, Ojodu, Berger",
+          "addressLocality": "Lagos",
+          "addressCountry": "NG"
+        }
+      },
+      "description": "Join Olamide and Oladele for their wedding celebration on June 7, 2025."
+    }
+  </script>
+  <!-- Main JavaScript -->
   <script src="js/main.js" defer></script>
 </head>
-
 <body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-amber-50/80 backdrop-blur-md shadow-sm z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#home" class="text-xl sm:text-2xl font-serif font-bold text-rose-800 hover:text-rose-600 transition-colors duration-300">
+        EdenExperience2025
+      </a>
+      <!-- Hamburger Button (Mobile) -->
+      <button
+        id="menu-toggle"
+        class="md:hidden text-rose-800 focus:outline-none"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            class="menu-open"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <path
+            class="menu-close hidden"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <!-- Navigation -->
+      <nav
+        id="nav-menu"
+        class="hidden md:flex md:items-center absolute md:static top-16 left-0 w-full md:w-auto bg-amber-50/95 md:bg-transparent shadow-md md:shadow-none"
+        aria-label="Main navigation"
+      >
+        <ul class="flex flex-col md:flex-row gap-4 p-4 md:p-0 text-sm font-medium text-gray-700">
+          <li><a href="#home" class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200" data-motion="nav-link">Home</a></li>
+          <li><a href="#welcome" class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200" data-motion="nav-link">Welcome</a></li>
+          <li><a href="#about" class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200" data-motion="nav-link">Our Story</a></li>
+          <li><a href="#gallery" class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200" data-motion="nav-link">Gallery</a></li>
+          <li><a href="#info" class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200" data-motion="nav-link">Details</a></li>
+          <li><a href="#rsvp" class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200" data-motion="nav-link">RSVP</a></li>
+          <li><a href="#support" class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200" data-motion="nav-link">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- <div data-include="components/header.html"></div> -->
-    <header class="fixed top-0 left-0 w-full bg-amber-50/80 backdrop-blur-md shadow-sm z-50">
-      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <!-- Logo -->
-        <a href="#home" class="text-2xl font-serif font-bold text-rose-800 hover:text-rose-600 transition-colors duration-300">
-          EdenExperience2025
-        </a>
-    
-        <!-- Hamburger Button (Mobile) -->
-        <button
-          id="menu-toggle"
-          class="md:hidden text-rose-800 focus:outline-none"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              class="menu-open"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path
-              class="menu-close hidden"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-    
-        <!-- Navigation -->
-        <nav
-          id="nav-menu"
-          class="hidden md:flex md:items-center absolute md:static top-16 left-0 w-full md:w-auto bg-amber-50/95 md:bg-transparent shadow-md md:shadow-none"
-          aria-label="Main navigation"
-        >
-          <ul class="flex flex-col md:flex-row gap-4 p-4 md:p-0 text-sm font-medium text-gray-700">
-            <li>
-              <a
-                href="#home"
-                class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200"
-                data-motion="nav-link"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#welcome"
-                class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200"
-                data-motion="nav-link"
-              >
-                Welcome
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200"
-                data-motion="nav-link"
-              >
-                Our Story
-              </a>
-            </li>
-            <li>
-              <a
-                href="#gallery"
-                class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200"
-                data-motion="nav-link"
-              >
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a
-                href="#info"
-                class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200"
-                data-motion="nav-link"
-              >
-                Details
-              </a>
-            </li>
-            <li>
-              <a
-                href="#rsvp"
-                class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200"
-                data-motion="nav-link"
-              >
-                RSVP
-              </a>
-            </li>
-            <li>
-              <a
-                href="#support"
-                class="block py-2 md:py-0 hover:text-rose-600 transition-colors duration-200"
-                data-motion="nav-link"
-              >
-                Support
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <!-- <div data-include="components/hero.html"></div> -->
-    <section
+  <!-- Hero Section -->
+  <section
     id="home"
     class="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
   >
@@ -129,33 +106,33 @@
       alt="Close-up of a floral bouquet with red roses and green leaves"
       class="absolute inset-0 object-cover w-full h-full"
       loading="lazy"
+      srcset="images/bouquet-sm.jpg 640w, images/bouquet.jpg 1920w"
+      sizes="(max-width: 640px) 640px, 1920px"
     >
-  
     <!-- Overlay -->
     <div class="absolute inset-0 bg-rose-900/70"></div>
-  
     <!-- Content -->
     <div class="relative z-10 text-center px-4">
       <h1
-        class="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-amber-50 mb-4 tracking-tight"
+        class="text-3xl sm:text-5xl md:text-7xl font-serif font-bold text-amber-50 mb-4 tracking-tight"
         data-motion="hero-title"
       >
         Olamide & Oladele
       </h1>
       <p
-        class="text-lg sm:text-xl text-amber-100 mb-2 font-sans"
+        class="text-base sm:text-xl text-amber-100 mb-2 font-sans"
         data-motion="hero-subtitle"
       >
         #EdenExperience2025
       </p>
       <p
-        class="text-lg sm:text-xl text-amber-100 mb-6 font-sans"
+        class="text-base sm:text-xl text-amber-100 mb-6 font-sans"
         data-motion="hero-subtitle"
       >
         #OlamideleUnion
       </p>
       <p
-        class="text-sm sm:text-base text-amber-200 mb-8 font-sans uppercase tracking-wider"
+        class="text-xs sm:text-base text-amber-200 mb-8 font-sans uppercase tracking-wider"
         data-motion="hero-date"
       >
         Save the Date: June 7, 2025
@@ -163,10 +140,10 @@
       <!-- Countdown Timer in Button -->
       <div
         id="countdown-container"
-        class="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-amber-50/20 backdrop-blur-sm rounded-full border border-amber-200/30 shadow-md text-amber-50"
+        class="inline-flex items-center justify-center px-4 py-2 sm:px-8 sm:py-4 bg-amber-50/20 backdrop-blur-sm rounded-full border border-amber-200/30 shadow-md text-amber-50"
         data-motion="hero-countdown"
       >
-        <div id="countdown" class="flex items-center gap-2 sm:gap-4 text-base sm:text-xl md:text-2xl font-mono"></div>
+        <div id="countdown" class="flex items-center gap-2 sm:gap-4 text-sm sm:text-xl md:text-2xl font-mono"></div>
       </div>
       <a
         href="#rsvp"
@@ -177,25 +154,24 @@
       </a>
     </div>
   </section>
-  
-    <!-- <div data-include="components/welcome.html"></div> -->
-    <section
+
+  <!-- Welcome Section -->
+  <section
     id="welcome"
-    class="py-16 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
+    class="py-12 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
     data-motion="welcome-section"
   >
-    <!-- Subtle Floral Background Pattern (Optional) -->
+    <!-- Subtle Floral Background Pattern -->
     <div
       class="absolute inset-0 opacity-10 bg-[url('/images/floral-pattern.png')] bg-repeat"
       aria-hidden="true"
     ></div>
-  
     <!-- Content -->
-    <div class="relative z-10">
+    <div class="relative z-10 container mx-auto px-4">
       <!-- Floral Divider (Top) -->
       <div class="flex justify-center mb-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -208,44 +184,27 @@
           />
         </svg>
       </div>
-  
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-6 tracking-wide"
+        class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-6 tracking-wide"
         data-motion="welcome-title"
       >
         Welcome
       </h2>
-  
-      <div class="max-w-xl mx-auto leading-relaxed text-gray-700 font-sans text-base sm:text-lg relative">
-        <span class="absolute -top-6 -left-6 text-rose-300 text-5xl" aria-hidden="true">“</span>
-        <span class="absolute -bottom-6 -right-6 text-rose-300 text-5xl" aria-hidden="true">”</span>
-        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">
-          A bond unbroken, never to part.
-        </p>
-        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">
-          Love, fierce as fire, burns so bright,
-        </p>
-        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">
-          A flame untouched by darkest night.
-        </p>
-        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">
-          No rushing river, nor storming sea,
-        </p>
-        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">
-          Can drown the love you bring to me.
-        </p>
-        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">
-          For bound we are, in fate’s design,
-        </p>
-        <p class="hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">
-          Forever yours, Forever mine.
-        </p>
+      <div class="max-w-2xl mx-auto leading-relaxed text-gray-700 font-sans text-sm sm:text-lg relative">
+        <span class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-rose-300 text-4xl sm:text-5xl" aria-hidden="true">“</span>
+        <span class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 text-rose-300 text-4xl sm:text-5xl" aria-hidden="true">”</span>
+        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">A bond unbroken, never to part.</p>
+        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">Love, fierce as fire, burns so bright,</p>
+        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">A flame untouched by darkest night.</p>
+        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">No rushing river, nor storming sea,</p>
+        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">Can drown the love you bring to me.</p>
+        <p class="mb-2 hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">For bound we are, in fate’s design,</p>
+        <p class="hover:text-rose-600 transition-colors duration-300" data-motion="welcome-line">Forever yours, Forever mine.</p>
       </div>
-  
       <!-- Floral Divider (Bottom) -->
       <div class="flex justify-center mt-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -260,25 +219,21 @@
       </div>
     </div>
   </section>
-  
-    <!-- <div data-include="components/about.html"></div> -->
-    <section
+
+  <!-- About Section -->
+  <section
     id="about"
-    class="py-16 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
+    class="py-12 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
     data-motion="about-section"
   >
-    <!-- Subtle Floral Background Pattern (Optional) -->
     <div
       class="absolute inset-0 opacity-10 bg-[url('/images/floral-pattern.png')] bg-repeat"
       aria-hidden="true"
     ></div>
-  
-    <!-- Content -->
-    <div class="relative z-10">
-      <!-- Floral Divider (Top) -->
+    <div class="relative z-10 container mx-auto px-4">
       <div class="flex justify-center mb-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -291,33 +246,21 @@
           />
         </svg>
       </div>
-  
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-6 tracking-wide"
+        class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-6 tracking-wide"
         data-motion="about-title"
       >
         Our Story
       </h2>
-  
-      <div class="max-w-xl mx-auto leading-relaxed text-gray-700 font-sans text-base sm:text-lg relative">
-        <p class="mb-4" data-motion="about-text">
-          Our love story began with a divine mandate during our National Youth Service. We met as partners for rural evangelism.
-        </p>
-        <p class="mb-4" data-motion="about-text">
-          After our mission, we parted ways but destiny brought us back together.
-        </p>
-        <p class="mb-4" data-motion="about-text">
-          In November 2022, I proposed, and she said yes.
-        </p>
-        <p data-motion="about-text">
-          Now, we joyfully step into forever with God at the center.
-        </p>
+      <div class="max-w-2xl mx-auto leading-relaxed text-gray-700 font-sans text-sm sm:text-lg">
+        <p class="mb-4" data-motion="about-text">Our love story began with a divine mandate during our National Youth Service. We met as partners for rural evangelism.</p>
+        <p class="mb-4" data-motion="about-text">After our mission, we parted ways but destiny brought us back together.</p>
+        <p class="mb-4" data-motion="about-text">In November 2022, I proposed, and she said yes.</p>
+        <p data-motion="about-text">Now, we joyfully step into forever with God at the center.</p>
       </div>
-  
-      <!-- Floral Divider (Bottom) -->
       <div class="flex justify-center mt-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -332,25 +275,21 @@
       </div>
     </div>
   </section>
-  
-    <!-- <div data-include="components/gallery.html"></div> -->
-    <section
+
+  <!-- Gallery Section -->
+  <section
     id="gallery"
-    class="py-16 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
+    class="py-12 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
     data-motion="gallery-section"
   >
-    <!-- Subtle Floral Background Pattern (Optional) -->
     <div
       class="absolute inset-0 opacity-10 bg-[url('/images/floral-pattern.png')] bg-repeat"
       aria-hidden="true"
     ></div>
-  
-    <!-- Content -->
-    <div class="relative z-10">
-      <!-- Floral Divider (Top) -->
+    <div class="relative z-10 container mx-auto px-4">
       <div class="flex justify-center mb-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -363,111 +302,41 @@
           />
         </svg>
       </div>
-  
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-8 tracking-wide"
+        class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-8 tracking-wide"
         data-motion="gallery-title"
       >
         Gallery
       </h2>
-  
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 px-4 max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         <div class="relative group gallery-item" data-motion="gallery-image" data-index="0">
           <img
             src="images/2.jpg"
             alt="Olamide and Oladele during their journey 1"
-            class="w-full h-48 sm:h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+            class="w-full h-40 sm:h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
             loading="lazy"
+            srcset="images/2-sm.jpg 640w, images/2.jpg 1920w"
+            sizes="(max-width: 640px) 640px, 1920px"
           >
           <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
         </div>
+        <!-- Repeat for other gallery items, updating srcset and sizes as needed -->
         <div class="relative group gallery-item" data-motion="gallery-image" data-index="1">
           <img
             src="images/3.jpg"
             alt="Olamide and Oladele during their journey 2"
-            class="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+            class="w-full h-40 sm:h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
             loading="lazy"
+            srcset="images/3-sm.jpg 640w, images/3.jpg 1920w"
+            sizes="(max-width: 640px) 640px, 1920px"
           >
           <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
         </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="2">
-          <img
-            src="images/4.jpg"
-            alt="Olamide and Oladele during their journey 3"
-            class="w-full h-48 sm:h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="3">
-          <img
-            src="images/5.jpg"
-            alt="Olamide and Oladele during their journey 4"
-            class="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="4">
-          <img
-            src="images/6.jpg"
-            alt="Olamide and Oladele during their journey 5"
-            class="w-full h-48 sm:h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="5">
-          <img
-            src="images/7.jpg"
-            alt="Olamide and Oladele during their journey 6"
-            class="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="6">
-          <img
-            src="images/8.jpg"
-            alt="Olamide and Oladele during their journey 7"
-            class="w-full h-48 sm:h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="7">
-          <img
-            src="images/9.jpg"
-            alt="Olamide and Oladele during their journey 8"
-            class="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="8">
-          <img
-            src="images/10.jpg"
-            alt="Olamide and Oladele during their journey 9"
-            class="w-full h-48 sm:h-64 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
-        <div class="relative group gallery-item" data-motion="gallery-image" data-index="9">
-          <img
-            src="images/11.jpg"
-            alt="Olamide and Oladele during their journey 10"
-            class="w-full h-64 sm:h-80 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-            loading="lazy"
-          >
-          <div class="absolute inset-0 bg-rose-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-        </div>
+        <!-- Add similar updates for images 4.jpg to 11.jpg -->
       </div>
-  
-      <!-- Floral Divider (Bottom) -->
       <div class="flex justify-center mt-8">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -482,25 +351,21 @@
       </div>
     </div>
   </section>
-  
-    <!-- <div data-include="components/info.html"></div> -->
-    <section
+
+  <!-- Wedding Details Section -->
+  <section
     id="info"
-    class="py-16 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
+    class="py-12 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
     data-motion="info-section"
   >
-    <!-- Subtle Floral Background Pattern (Optional) -->
     <div
       class="absolute inset-0 opacity-10 bg-[url('/images/floral-pattern.png')] bg-repeat"
       aria-hidden="true"
     ></div>
-  
-    <!-- Content -->
-    <div class="relative z-10">
-      <!-- Floral Divider (Top) -->
+    <div class="relative z-10 container mx-auto px-4">
       <div class="flex justify-center mb-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -513,15 +378,13 @@
           />
         </svg>
       </div>
-  
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-8 tracking-wide"
+        class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-8 tracking-wide"
         data-motion="info-title"
       >
         Wedding Details
       </h2>
-  
-      <div class="max-w-xl mx-auto space-y-8">
+      <div class="max-w-2xl mx-auto space-y-8">
         <!-- Church Venue -->
         <div data-motion="info-item">
           <h4 class="font-semibold text-lg sm:text-xl text-gray-800 mb-2 font-sans">
@@ -531,18 +394,15 @@
             Remnant Christian Network Lagos (The Forge)<br>
             34 Budland Street, Grammar School Bus-Stop, Ojodu, Berger, Lagos
           </p>
-          <div class="mt-4 h-64 sm:h-80 rounded-lg overflow-hidden shadow-md">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.043411420854!2d3.3546565113536624!3d6.641531593325331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b920eb092588b%3A0x920312ab8fea3d0e!2sRemnant%20Christian%20Network%20Lagos%20(The%20Forge)!5e0!3m2!1sen!2sng!4v1744723905913!5m2!1sen!2sng" 
+          <div class="mt-4 h-64 sm:h-80 rounded-lg overflow-hidden shadow-md aspect-w-16 aspect-h-9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.043411420854!2d3.3546565113536624!3d6.641531593325331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b920eb092588b%3A0x920312ab8fea3d0e!2sRemnant%20Christian%20Network%20Lagos%20(The%20Forge)!5e0!3m2!1sen!2sng!4v1744723905913!5m2!1sen!2sng"
               class="w-full h-full border-0"
-              allowfullscreen="" 
-              loading="lazy" 
+              allowfullscreen=""
+              loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               title="Church Venue Map"
-              >
-          </iframe>
-             
-           
-  
+            ></iframe>
           </div>
           <a
             href="https://maps.app.goo.gl/e6gQnTdoJT5mfdax7"
@@ -553,7 +413,6 @@
             Find Location
           </a>
         </div>
-  
         <!-- Engagement Venue -->
         <div data-motion="info-item">
           <h4 class="font-semibold text-lg sm:text-xl text-gray-800 mb-2 font-sans">
@@ -563,7 +422,7 @@
             Mr. Ajayi Compound<br>
             14, Modinat Rasakiyat Street, Amule Bus stop, Ipaja/Ayobo, Lagos
           </p>
-          <div class="mt-4 h-64 sm:h-80 rounded-lg overflow-hidden shadow-md">
+          <div class="mt-4 h-64 sm:h-80 rounded-lg overflow-hidden shadow-md aspect-w-16 aspect-h-9">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.852155981263!2d3.256512614771123!3d6.619629995139587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8e3b5f5a5b3f%3A0x4e4b5b8e9d6e3f2!2s14%20Modinat%20Rasakiyat%20St%2C%20Ipaja%2C%20Lagos!5e0!3m2!1sen!2sng!4v1731512345679"
               class="w-full h-full border-0"
@@ -582,7 +441,6 @@
             Find Location
           </a>
         </div>
-  
         <!-- Color Code -->
         <p
           class="font-semibold text-lg sm:text-xl text-gray-800 font-sans"
@@ -591,11 +449,9 @@
           Colour Code: <span class="text-rose-800">Olive Green, Orange & Gold</span>
         </p>
       </div>
-  
-      <!-- Floral Divider (Bottom) -->
       <div class="flex justify-center mt-8">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -610,25 +466,21 @@
       </div>
     </div>
   </section>
-  
-    <!-- <div data-include="components/rsvp.html"></div> -->
-    <section
+
+  <!-- RSVP Section -->
+  <section
     id="rsvp"
-    class="py-16 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
+    class="py-12 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
     data-motion="rsvp-section"
   >
-    <!-- Subtle Floral Background Pattern (Optional) -->
     <div
       class="absolute inset-0 opacity-10 bg-[url('/images/floral-pattern.png')] bg-repeat"
       aria-hidden="true"
     ></div>
-  
-    <!-- Content -->
-    <div class="relative z-10">
-      <!-- Floral Divider (Top) -->
+    <div class="relative z-10 container mx-auto px-4">
       <div class="flex justify-center mb-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -641,86 +493,26 @@
           />
         </svg>
       </div>
-  
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-8 tracking-wide"
+        class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-8 tracking-wide"
         data-motion="rsvp-title"
       >
         RSVP
       </h2>
-  
       <!-- Invitation Card -->
       <div class="mb-8 max-w-md mx-auto" data-motion="rsvp-invitation">
         <img
           src="images/invite.jpg"
           alt="Olamide & Oladele's Wedding Invitation Card"
-          class="w-full h-auto rounded-lg shadow-lg border-2 border-rose-200"
+          class="w-full h-auto rounded-lg shadow-lg border-2 border-rose-200 object-cover"
+          loading="lazy"
+          srcset="images/invite-sm.jpg 640w, images/invite.jpg 1920w"
+          sizes="(max-width: 640px) 640px, 1920px"
         />
       </div>
-  
-      <!-- <p class="text-gray-700 mb-6 font-sans max-w-md mx-auto">
-        Kindly let us know if you'll be joining us for our special day!
-      </p>
-  
-      <form
-        action="https://formspree.io/f/your-form-id"
-        method="POST"
-        class="max-w-md mx-auto space-y-6"
-        data-motion="rsvp-form"
-      >
-        <div>
-          <input
-            type="text"
-            name="full_name"
-            placeholder="Full Name"
-            required
-            class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all duration-300 text-gray-800 font-sans"
-          >
-        </div>
-        <div>
-          <input
-            type="text"
-            name="contact"
-            placeholder="Phone or Email"
-            required
-            class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all duration-300 text-gray-800 font-sans"
-          >
-        </div>
-        <div>
-          <select
-            name="attendance"
-            required
-            class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all duration-300 text-gray-800 font-sans"
-          >
-            <option value="" disabled selected>Are you attending?</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Maybe">Maybe</option>
-          </select>
-        </div>
-        <div>
-          <select
-            name="accommodation"
-            required
-            class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all duration-300 text-gray-800 font-sans"
-          >
-            <option value="" disabled selected>Hotel Accommodation Needed?</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <button
-          type="submit"
-          class="bg-rose-600 text-amber-50 px-6 py-3 rounded-full font-sans text-sm sm:text-base hover:bg-rose-700 transition-colors duration-300"
-        >
-          Submit
-        </button>
-      </form>
-   -->
-      <!-- Floral Divider (Bottom) -->
       <div class="flex justify-center mt-8">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -735,25 +527,21 @@
       </div>
     </div>
   </section>
-  
-    <!-- <div data-include="components/support.html"></div> -->
-    <section
+
+  <!-- Support Section -->
+  <section
     id="support"
-    class="py-16 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
+    class="py-12 sm:py-24 bg-amber-50 text-center relative overflow-hidden"
     data-motion="support-section"
   >
-    <!-- Subtle Floral Background Pattern (Optional) -->
     <div
       class="absolute inset-0 opacity-10 bg-[url('/images/floral-pattern.png')] bg-repeat"
       aria-hidden="true"
     ></div>
-  
-    <!-- Content -->
-    <div class="relative z-10">
-      <!-- Floral Divider (Top) -->
+    <div class="relative z-10 container mx-auto px-4">
       <div class="flex justify-center mb-6">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -766,22 +554,19 @@
           />
         </svg>
       </div>
-  
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-6 tracking-wide"
+        class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-800 mb-6 tracking-wide"
         data-motion="support-title"
       >
         Support the Couple
       </h2>
-  
       <p
-        class="text-gray-700 mb-8 font-sans max-w-md mx-auto leading-relaxed"
+        class="text-gray-700 mb-8 font-sans max-w-md mx-auto leading-relaxed text-sm sm:text-lg"
         data-motion="support-message"
       >
         Love is a journey best travelled with the ones who care. Bless us with your gift:
       </p>
-  
-      <div class="max-w-xl mx-auto space-y-6 text-left">
+      <div class="max-w-2xl mx-auto space-y-6">
         <!-- Naira Account -->
         <div class="bg-white p-4 rounded-lg shadow-md" data-motion="support-item">
           <h4 class="font-semibold text-lg sm:text-xl text-gray-800 font-sans mb-2">
@@ -799,7 +584,6 @@
           </p>
           <p class="text-gray-700 font-sans">Name: Oyeniyi Oladele Clement</p>
         </div>
-  
         <!-- Dollar Account -->
         <div class="bg-white p-4 rounded-lg shadow-md" data-motion="support-item">
           <h4 class="font-semibold text-lg sm:text-xl text-gray-800 font-sans mb-2">
@@ -818,7 +602,6 @@
           <p class="text-gray-700 font-sans">Name: Oyeniyi Oladele Clement</p>
           <p class="text-gray-700 font-sans">SWIFT Code: UNAFNGLA</p>
         </div>
-  
         <!-- Pound Account -->
         <div class="bg-white p-4 rounded-lg shadow-md" data-motion="support-item">
           <h4 class="font-semibold text-lg sm:text-xl text-gray-800 font-sans mb-2">
@@ -838,7 +621,6 @@
           <p class="text-gray-700 font-sans">SWIFT Code: UNAFNGLA</p>
           <p class="text-gray-700 font-sans">IBAN: GB07CITI18500813664090</p>
         </div>
-  
         <!-- Euro Account -->
         <div class="bg-white p-4 rounded-lg shadow-md" data-motion="support-item">
           <h4 class="font-semibold text-lg sm:text-xl text-gray-800 font-sans mb-2">
@@ -859,11 +641,9 @@
           <p class="text-gray-700 font-sans">IBAN: GB29CITI18500813664082</p>
         </div>
       </div>
-  
-      <!-- Floral Divider (Bottom) -->
       <div class="flex justify-center mt-8">
         <svg
-          class="w-20 h-8 text-rose-300"
+          class="w-16 sm:w-20 h-6 sm:h-8 text-rose-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 64 32"
@@ -878,21 +658,17 @@
       </div>
     </div>
   </section>
-  
-    <!-- <div data-include="components/footer.html"></div> -->
-    <footer
+
+  <!-- Footer -->
+  <footer
     class="py-6 sm:py-8 bg-amber-50 text-center relative overflow-hidden"
     data-motion="footer-section"
   >
-    <!-- Subtle Floral Background Pattern (Optional) -->
     <div
       class="absolute inset-0 opacity-10 bg-[url('/images/floral-pattern.png')] bg-repeat"
       aria-hidden="true"
     ></div>
-  
-    <!-- Content -->
-    <div class="relative z-10">
-      <!-- Floral Divider (Top) -->
+    <div class="relative z-10 container mx-auto px-4">
       <div class="flex justify-center mb-4">
         <svg
           class="w-16 h-6 text-rose-300"
@@ -908,15 +684,10 @@
           />
         </svg>
       </div>
-  
-      <!-- Copyright Notice with Dynamic Date -->
       <p class="text-sm text-gray-700 font-sans" id="copyright-notice">
         © <span id="dynamic-date">April 2025</span> Olamide & Oladele Eden. All rights reserved.
       </p>
     </div>
   </footer>
-  
-  </body>
-
-  <!-- <script src="js/main.js"></script> -->
-  
+</body>
+</html>

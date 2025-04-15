@@ -31,22 +31,22 @@ const handleError = (message, error) => {
       countdownElement.innerHTML = `
         <span class="flex flex-col items-center">
           <span class="font-bold">${days}</span>
-          <span class="text-xs sm:text-sm text-amber-200">Days</span>
+          <span class="text-xs text-amber-200">Days</span>
         </span>
         <span class="text-amber-200">:</span>
         <span class="flex flex-col items-center">
           <span class="font-bold">${hours}</span>
-          <span class="text-xs sm:text-sm text-amber-200">Hours</span>
+          <span class="text-xs text-amber-200">Hours</span>
         </span>
         <span class="text-amber-200">:</span>
         <span class="flex flex-col items-center">
           <span class="font-bold">${minutes}</span>
-          <span class="text-xs sm:text-sm text-amber-200">Minutes</span>
+          <span class="text-xs text-amber-200">Minutes</span>
         </span>
         <span class="text-amber-200">:</span>
         <span class="flex flex-col items-center">
           <span class="font-bold">${seconds}</span>
-          <span class="text-xs sm:text-sm text-amber-200">Seconds</span>
+          <span class="text-xs text-amber-200">Seconds</span>
         </span>
       `;
     };
@@ -59,8 +59,9 @@ const handleError = (message, error) => {
   const copyAccount = async (accountNumber) => {
     try {
       await navigator.clipboard.writeText(accountNumber);
+      // Replace alert with a toast notification (customizable)
       const toast = document.createElement('div');
-      toast.className = 'fixed bottom-4 right-4 bg-rose-600 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base';
+      toast.className = 'fixed bottom-4 right-4 bg-rose-600 text-white px-4 py-2 rounded shadow-lg';
       toast.textContent = 'Account number copied!';
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 3000);
@@ -83,7 +84,7 @@ const handleError = (message, error) => {
     dynamicDateElement.textContent = `${month} ${year}`;
   };
   
-  // HTML Include Loader (Unused in current HTML)
+  // HTML Include Loader
   const loadIncludes = async () => {
     const includes = document.querySelectorAll('[data-include]');
     const loadPromises = Array.from(includes).map(async (el) => {
@@ -92,6 +93,7 @@ const handleError = (message, error) => {
         const response = await fetch(file);
         if (!response.ok) throw new Error(`Failed to load ${file}`);
         el.innerHTML = await response.text();
+        // Trigger event for dynamic content (e.g., for other scripts)
         el.dispatchEvent(new Event('include-loaded'));
       } catch (err) {
         handleError(`Error loading ${file}`, err);
@@ -126,7 +128,7 @@ const handleError = (message, error) => {
         e.preventDefault();
         const target = document.querySelector(anchor.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: 'smooth' });
           if (!navMenu.classList.contains('hidden')) {
             navMenu.classList.add('hidden');
             menuToggle.setAttribute('aria-expanded', 'false');
@@ -135,23 +137,6 @@ const handleError = (message, error) => {
           }
         }
       });
-    });
-  
-    // Reset mobile menu on resize
-    const handleResize = () => {
-      if (window.innerWidth >= 768 && !navMenu.classList.contains('hidden')) {
-        navMenu.classList.add('hidden');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuOpen.classList.remove('hidden');
-        menuClose.classList.add('hidden');
-      }
-    };
-  
-    // Debounce resize event
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(handleResize, 100);
     });
   };
   
@@ -170,11 +155,11 @@ const handleError = (message, error) => {
       lightbox.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
       lightbox.setAttribute('data-motion', 'lightbox');
       lightbox.innerHTML = `
-        <div class="relative w-full max-w-3xl sm:max-w-4xl h-full flex items-center justify-center">
-          <button class="absolute top-2 sm:top-4 right-2 sm:right-4 text-amber-50 text-2xl sm:text-4xl hover:text-rose-300 transition-colors" id="close-lightbox">×</button>
-          <button class="absolute left-2 sm:left-4 text-amber-50 text-2xl sm:text-4xl hover:text-rose-300 transition-colors" id="prev-lightbox">←</button>
-          <button class="absolute right-2 sm:right-4 text-amber-50 text-2xl sm:text-4xl hover:text-rose-300 transition-colors" id="next-lightbox">→</button>
-          <img src="${imgSrc}" alt="${imgAlt}" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-lg" id="lightbox-image">
+        <div class="relative max-w-4xl w-full h-full flex items-center justify-center">
+          <button class="absolute top-4 right-4 text-amber-50 text-3xl sm:text-4xl hover:text-rose-300 transition-colors" id="close-lightbox">×</button>
+          <button class="absolute left-4 text-amber-50 text-3xl sm:text-4xl hover:text-rose-300 transition-colors hidden sm:block" id="prev-lightbox">←</button>
+          <button class="absolute right-4 text-amber-50 text-3xl sm:text-4xl hover:text-rose-300 transition-colors hidden sm:block" id="next-lightbox">→</button>
+          <img src="${imgSrc}" alt="${imgAlt}" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-lg" id="lightbox-image">
         </div>
       `;
       document.body.appendChild(lightbox);
@@ -226,31 +211,13 @@ const handleError = (message, error) => {
       };
       document.addEventListener('keydown', handleKeydown);
   
-      // Touch swipe support
-      let touchStartX = 0;
-      let touchEndX = 0;
-      lightbox.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-      lightbox.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchEndX < touchStartX - 50) {
-          currentIndex = (currentIndex + 1) % galleryItems.length;
-          updateLightboxImage(lightbox, currentIndex);
-        } else if (touchEndX > touchStartX + 50) {
-          currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-          updateLightboxImage(lightbox, currentIndex);
-        }
-      });
-  
-      // Close on background click
+      // Remove keydown listener when lightbox closes
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
           lightbox.remove();
         }
       });
   
-      // Clean up
       lightbox.addEventListener('remove', () => {
         document.removeEventListener('keydown', handleKeydown);
       });
@@ -262,6 +229,7 @@ const handleError = (message, error) => {
       const imgAlt = item.querySelector('img').alt;
       const lightboxImage = lightbox.querySelector('#lightbox-image');
   
+      // Animate image transition
       if (window.motion) {
         const { motion } = window.motion;
         motion(lightboxImage, {
@@ -288,24 +256,12 @@ const handleError = (message, error) => {
     }
   
     const { motion } = window.motion;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
-    const animationConfig = (delay, duration) => ({
-      initial: { opacity: 0, y: 20 },
-      whileInView: { opacity: 1, y: 0 },
-      viewport: { once: true, margin: '-100px' },
-      transition: {
-        duration: reducedMotion ? 0 : duration,
-        ease: 'easeOut',
-        delay: reducedMotion ? 0 : delay,
-      },
-    });
   
     // Animate header
     motion('header', {
       initial: { opacity: 0, y: -50 },
       animate: { opacity: 1, y: 0 },
-      transition: { duration: reducedMotion ? 0 : 0.8, ease: 'easeOut' },
+      transition: { duration: 0.8, ease: 'easeOut' },
     });
   
     // Animate nav links
@@ -313,88 +269,197 @@ const handleError = (message, error) => {
       motion(link, {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
-        transition: {
-          delay: reducedMotion ? 0 : index * 0.05,
-          duration: reducedMotion ? 0 : 0.5,
-          ease: 'easeOut',
-        },
+        transition: { delay: index * 0.1, duration: 0.5, ease: 'easeOut' },
       });
     });
   
     // Animate hero section
-    motion("[data-motion='hero-title']", animationConfig(0, 1));
-    document.querySelectorAll("[data-motion='hero-subtitle']").forEach((el, index) => {
-      motion(el, animationConfig(0.2 + index * 0.05, 0.8));
+    motion("[data-motion='hero-title']", {
+      initial: { opacity: 0, y: 30 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 1, ease: 'easeOut' },
     });
-    motion("[data-motion='hero-date']", animationConfig(0.4, 0.8));
+  
+    document.querySelectorAll("[data-motion='hero-subtitle']").forEach((el, index) => {
+      motion(el, {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.2 + index * 0.1, duration: 0.8, ease: 'easeOut' },
+      });
+    });
+  
+    motion("[data-motion='hero-date']", {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { delay: 0.4, duration: 0.8, ease: 'easeOut' },
+    });
+  
     motion("[data-motion='hero-countdown']", {
       initial: { opacity: 0, scale: 0.8 },
       animate: { opacity: 1, scale: 1 },
-      transition: {
-        delay: reducedMotion ? 0 : 0.6,
-        duration: reducedMotion ? 0 : 0.8,
-        ease: 'easeOut',
-      },
+      transition: { delay: 0.6, duration: 0.8, ease: 'easeOut' },
     });
-    motion("[data-motion='hero-cta']", animationConfig(0.8, 0.8));
+  
+    motion("[data-motion='hero-cta']", {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { delay: 0.8, duration: 0.8, ease: 'easeOut' },
+    });
   
     // Animate welcome section
-    motion("[data-motion='welcome-section']", animationConfig(0, 0.8));
-    motion("[data-motion='welcome-title']", animationConfig(0.2, 0.8));
+    motion("[data-motion='welcome-section']", {
+      initial: { opacity: 0, y: 50 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut' },
+    });
+  
+    motion("[data-motion='welcome-title']", {
+      initial: { opacity: 0, y: 30 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 },
+    });
+  
     document.querySelectorAll("[data-motion='welcome-line']").forEach((line, index) => {
-      motion(line, animationConfig(0.4 + index * 0.05, 0.6));
+      motion(line, {
+        initial: { opacity: 0, x: -20 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: { once: true, margin: '-100px' },
+        transition: { delay: 0.4 + index * 0.1, duration: 0.6, ease: 'easeOut' },
+      });
     });
   
     // Animate about section
-    motion("[data-motion='about-section']", animationConfig(0, 0.8));
-    motion("[data-motion='about-title']", animationConfig(0.2, 0.8));
+    motion("[data-motion='about-section']", {
+      initial: { opacity: 0, y: 50 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut' },
+    });
+  
+    motion("[data-motion='about-title']", {
+      initial: { opacity: 0, y: 30 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 },
+    });
+  
     document.querySelectorAll("[data-motion='about-text']").forEach((text, index) => {
-      motion(text, animationConfig(0.4 + index * 0.05, 0.6));
+      motion(text, {
+        initial: { opacity: 0, x: -20 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: { once: true, margin: '-100px' },
+        transition: { delay: 0.4 + index * 0.1, duration: 0.6, ease: 'easeOut' },
+      });
     });
   
     // Animate gallery section
-    motion("[data-motion='gallery-section']", animationConfig(0, 0.8));
-    motion("[data-motion='gallery-title']", animationConfig(0.2, 0.8));
+    motion("[data-motion='gallery-section']", {
+      initial: { opacity: 0, y: 50 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut' },
+    });
+  
+    motion("[data-motion='gallery-title']", {
+      initial: { opacity: 0, y: 30 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 },
+    });
+  
     document.querySelectorAll("[data-motion='gallery-image']").forEach((image, index) => {
       motion(image, {
         initial: { opacity: 0, scale: 0.9 },
         whileInView: { opacity: 1, scale: 1 },
         viewport: { once: true, margin: '-100px' },
-        transition: {
-          delay: reducedMotion ? 0 : 0.4 + index * 0.05,
-          duration: reducedMotion ? 0 : 0.6,
-          ease: 'easeOut',
-        },
+        transition: { delay: 0.4 + index * 0.1, duration: 0.6, ease: 'easeOut' },
       });
     });
   
     // Animate info section
-    motion("[data-motion='info-section']", animationConfig(0, 0.8));
-    motion("[data-motion='info-title']", animationConfig(0.2, 0.8));
+    motion("[data-motion='info-section']", {
+      initial: { opacity: 0, y: 50 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut' },
+    });
+  
+    motion("[data-motion='info-title']", {
+      initial: { opacity: 0, y: 30 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 },
+    });
+  
     document.querySelectorAll("[data-motion='info-item']").forEach((item, index) => {
-      motion(item, animationConfig(0.4 + index * 0.05, 0.6));
+      motion(item, {
+        initial: { opacity: 0, x: -20 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: { once: true, margin: '-100px' },
+        transition: { delay: 0.4 + index * 0.1, duration: 0.6, ease: 'easeOut' },
+      });
     });
   
     // Animate RSVP section
-    motion("[data-motion='rsvp-section']", animationConfig(0, 0.8));
-    motion("[data-motion='rsvp-title']", animationConfig(0.2, 0.8));
+    motion("[data-motion='rsvp-section']", {
+      initial: { opacity: 0, y: 50 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut' },
+    });
+  
+    motion("[data-motion='rsvp-title']", {
+      initial: { opacity: 0, y: 30 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 },
+    });
+  
     motion("[data-motion='rsvp-invitation']", {
       initial: { opacity: 0, scale: 0.9 },
       whileInView: { opacity: 1, scale: 1 },
       viewport: { once: true, margin: '-100px' },
-      transition: {
-        delay: reducedMotion ? 0 : 0.3,
-        duration: reducedMotion ? 0 : 0.8,
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.3 },
+    });
+  
+    motion("[data-motion='rsvp-form']", {
+      initial: { opacity: 0, scale: 0.9 },
+      whileInView: { opacity: 1, scale: 1 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.4 },
     });
   
     // Animate Support section
-    motion("[data-motion='support-section']", animationConfig(0, 0.8));
-    motion("[data-motion='support-title']", animationConfig(0.2, 0.8));
-    motion("[data-motion='support-message']", animationConfig(0.3, 0.8));
+    motion("[data-motion='support-section']", {
+      initial: { opacity: 0, y: 50 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut' },
+    });
+  
+    motion("[data-motion='support-title']", {
+      initial: { opacity: 0, y: 30 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 },
+    });
+  
+    motion("[data-motion='support-message']", {
+      initial: { opacity: 0, y: 20 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.3 },
+    });
+  
     document.querySelectorAll("[data-motion='support-item']").forEach((item, index) => {
-      motion(item, animationConfig(0.4 + index * 0.05, 0.6));
+      motion(item, {
+        initial: { opacity: 0, x: -20 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: { once: true, margin: '-100px' },
+        transition: { delay: 0.4 + index * 0.1, duration: 0.6, ease: 'easeOut' },
+      });
     });
   
     // Animate Footer section
@@ -402,11 +467,10 @@ const handleError = (message, error) => {
       initial: { opacity: 0, y: 20 },
       whileInView: { opacity: 1, y: 0 },
       viewport: { once: true, margin: '-50px' },
-      transition: {
-        duration: reducedMotion ? 0 : 0.6,
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.6, ease: 'easeOut' },
     });
+  
+    // Future component animations can be added here
   };
   
   // Initialize Everything
@@ -415,11 +479,12 @@ const handleError = (message, error) => {
     initNavigation();
     initAnimations();
     initCountdown();
-    initLightbox();
-    initDynamicDate();
+    initLightbox(); // Initialize lightbox for gallery
+    initDynamicDate(); // Initialize dynamic date for footer
+    // Add more initializations as components are enhanced
   };
   
   document.addEventListener('DOMContentLoaded', init);
   
-  // Expose copyAccount globally
+  // Expose copyAccount globally for inline HTML calls
   window.copyAccount = copyAccount;
